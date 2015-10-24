@@ -3,7 +3,7 @@ import TypeWriter from 'react-typewriter';
 
 class Dialog extends Component {
   static defaultProps = {
-    visible: true,
+    initialVisible: true,
   }
 
   constructor(props) {
@@ -11,6 +11,8 @@ class Dialog extends Component {
 
     this.state = {
       speed: 1,
+      optionsVisible: false,
+      visible: props.initialVisible,
     };
   }
 
@@ -26,9 +28,26 @@ class Dialog extends Component {
     }
   }
 
+  onTypingEnd = () => {
+    this.setState({
+      optionsVisible: true,
+    });
+  }
+
   render() {
-    const options = this.props.options.map(function(name, index) {
-      return <div className={`option option-${index}`} key={index}>{index + 1}. {name}</div>
+    const options = this.props.options.map((name, index) => {
+      const click = (index, name) => {
+        return function() {
+          this.props.onOptionClick(index, name);
+          if (name === '(Continue)') {
+            this.setState({
+              visible: false,
+            });
+          }
+        };
+      };
+
+      return <div onClick={click(index, name)} className={`option option-${index}`} key={index}>{index + 1}. {name}</div>
     });
 
     const message = this.props.message.split('\n').map(function(line) {
@@ -37,16 +56,22 @@ class Dialog extends Component {
 
     let className = 'dialog';
 
-    if (!this.props.visible) {
+    if (!this.state.visible) {
       className += ' invisible';
+    }
+
+    let optionsClassName = 'options';
+
+    if (!this.state.optionsVisible) {
+      optionsClassName += ' invisible';
     }
 
     return (
       <div className={className} onClick={this.onClick}>
         <div className="text">
-          <TypeWriter typing={this.state.speed} fixed={true} onTypingEnd={this.props.onTypingEnd}>{message}</TypeWriter>
+          <TypeWriter typing={this.state.speed} fixed={true} onTypingEnd={this.onTypingEnd}>{message}</TypeWriter>
         </div>
-        <div className="options">{options}</div>
+        <div className={optionsClassName}>{options}</div>
       </div>
     )
   }

@@ -74,6 +74,12 @@ body {
 
   .options {
     margin-top: 16px;
+    opacity: 1;
+    transition: opacity 400ms;
+
+    &.invisible {
+      opacity: 0;
+    }
 
     .option {
       cursor: pointer;
