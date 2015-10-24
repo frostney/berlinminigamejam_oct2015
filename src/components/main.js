@@ -12,6 +12,7 @@ ES6Promise.polyfill();
 
 import React, {Component} from 'react';
 
+import Viewport from './Viewport';
 import SceneDirector from './SceneDirector';
 
 import FastClick from 'fastclick';
@@ -24,4 +25,10 @@ if (Object.hasOwnProperty.call(document, 'addEventListener')) {
   }, false);
 }
 
-React.render(<SceneDirector />, content);
+const game = (
+  <Viewport>
+    <SceneDirector />
+  </Viewport>
+);
+
+React.render(game, content);
