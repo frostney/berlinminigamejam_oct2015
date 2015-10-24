@@ -13,7 +13,7 @@ class Dialog extends Component {
 
     this.state = {
       speed: 1,
-      optionsVisible: false,
+      optionsVisible: true,
     };
   }
 
@@ -46,7 +46,7 @@ class Dialog extends Component {
       return <div onClick={click(index, name)} className={`option option-${index}`} key={index}>{index + 1}. {name.text}</div>
     });
 
-    const message = this.props.message.split('\n').map(function(line) {
+    let message = this.props.message.split('\n').map(function(line) {
       return <div className="line">{line}</div>
     });
 
@@ -65,7 +65,8 @@ class Dialog extends Component {
     return (
       <div className={className} onClick={this.onClick}>
         <div className="text">
-          <TypeWriter typing={this.state.speed} fixed={true} onTypingEnd={this.onTypingEnd}>{message}</TypeWriter>
+          {/*(message) ? <TypeWriter typing={this.state.speed} fixed={true} onTypingEnd={this.onTypingEnd}>{message}</TypeWriter> : null*/}
+          {message}
         </div>
         <div className={optionsClassName}>{options}</div>
       </div>

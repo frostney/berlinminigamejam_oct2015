@@ -38,6 +38,12 @@ class Bar extends Component {
     if (action === -1) {
       this.setState({
         dialogVisible: false,
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            dialogIndex: 0,
+          });
+        }, 400)
       });
     } else {
       this.setState({
