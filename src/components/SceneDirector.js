@@ -12,12 +12,25 @@ class SceneDirector extends Component {
   }
 
   componentDidMount() {
-    AppStore.on('scene', sceneName => this.setState({scene: sceneName}));
+    World.on('scene', sceneName => this.setState({scene: sceneName}));
   }
 
   render() {
+    if (!this.state.scene) {
+      return null;
+    }
+
+    if (scene) {
+      var sceneName = React.createElement(scene[this.state.scene]);
+    }
+
+    var style = {
+      width: '100%',
+      height: '100%',
+    };
+
     return (
-      <div className="scene-director">{scene[this.state.scene]}</div>
+      <div className="scene-director" style={style}>{sceneName}</div>
     );
   }
 }
