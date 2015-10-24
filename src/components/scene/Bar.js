@@ -5,6 +5,7 @@ import BackgroundImage from '../BackgroundImage';
 import Credits from '../Credits';
 import Dialog from '../Dialog';
 import World from 'store/World';
+import GameObject from '../GameObject';
 
 import data from 'data';
 
@@ -45,6 +46,14 @@ class Bar extends Component {
     }
   }
 
+  onRufus = () => {
+    this.setState({
+      dialogVisible: true,
+    }, function() {
+      World.trigger('dialog', 'rufus');
+    });
+  }
+
   render() {
     var curDialog = (function(curDialog) {
       return curDialog;
@@ -54,7 +63,8 @@ class Bar extends Component {
       <Scene name="bar">
         <BackgroundImage src="images/saloon.png" />
         <Credits />
-        <Dialog message={curDialog.text} options={curDialog.options} />
+        <Dialog visible={this.state.dialogVisible} message={curDialog.text} options={curDialog.options} onOptionClick={this.onOptionClick} />
+        <GameObject onClick={this.onRufus} width={70} height={147} left={428} top={244} />
       </Scene>
     );
   }

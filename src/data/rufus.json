@@ -1,10 +1,79 @@
-{
-  "text": "",
-  "option": [{
-    "text": "",
-    "action": {
-      "text": "dd",
-      "option": []
-    }
+[{
+  "text": " ",
+  "options": [{
+    "text": "So, are you into the priest or the groom?",
+    "action": 1
+  }, {
+    "text": "Nice hat...",
+    "action": 2
+  }, {
+    "text": "What will you have?",
+    "action": 3
   }]
-}
+}, {
+  "text": "What?! I don't know what you are talking about!",
+  "options": [{
+    "text": "It's ok man, I'm no one to judge. Once I was in a pretty tight threesome myself.",
+    "action": 4
+  }]
+}, {
+  "text": "Thank you, I made it myself.",
+  "options": [{
+    "text": "Can I wear it?",
+    "action": 5
+  }]
+}, {
+  "text": "Milk, what else?",
+  "options": [{
+    "text": "I asked first",
+    "action": 6
+  }]
+}, {
+  "text": "I wish I was in a threesome... No shit",
+  "options": [{
+    "text": "So let me guess, you have a crush on the groom?",
+    "action": 7
+  }]
+}, {
+  "text": "No. Maybe some other time.",
+  "options": [{
+    "text": "(Continue)",
+    "action": -1
+  }]
+}, {
+  "text": "Whatever...",
+  "options": [{
+    "text": "(Continue)",
+    "action": -1
+  }]
+}, {
+  "text": "Is it that obvious? Please! Don't say anything.",
+  "options": [{
+    "text": "Then you must tell him!",
+    "action": 8
+  }, {
+    "text": "I don't think the bride will be too happy about that.",
+    "action": 9
+  }, {
+    "text": "Tell the bride. She would love to hear this.",
+    "action": 10
+  }]
+}, {
+  "text": "You are right. I can't hold it in any longer",
+  "options": [{
+    "text": "(Well done. *Evil laugh*)",
+    "action": -1
+  }]
+}, {
+  "text": "Probably not.",
+  "options": [{
+    "text": "(Continue)",
+    "action": -1
+  }]
+}, {
+  "text": "Yeah right...",
+  "options": [{
+    "text": "(Continue)",
+    "action": -1
+  }]
+}]

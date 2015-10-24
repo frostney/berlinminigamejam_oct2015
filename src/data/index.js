@@ -1,3 +1,4 @@
 import intro from './intro.json';
+import rufus from './rufus.json';
 
-export default {intro};
+export default {intro, rufus};
