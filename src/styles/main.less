@@ -13,6 +13,10 @@ html, body {
   user-select: none;
 }
 
+body {
+  font-family: 'Indie Flower', cursive;
+}
+
 /* main */
 
 #content {
@@ -33,5 +37,32 @@ html, body {
   position: absolute;
   left: 16px;
   bottom: 16px;
-  width: 220px;
+  width: 180px;
+  height: 60px;
+  background-color: #000;
+  opacity: 0.6;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  color: #fff;
+
+  .name {
+    height: 16px;
+  }
+}
+
+.dialog {
+  @width: 350px;
+
+  position: absolute;
+  width: @width;
+  height: 150px;
+  left: 27.5%;
+  margin-left: @width * (-0.5);
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 16px;
+  color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
 }

@@ -56,15 +56,15 @@ class Viewport extends Component {
 
     switch (this.props.mode) {
       case 'scaleToFit': {
-        scaleFactor = Math.min(scaleWidthToFit(), scaleHeightToFit());
+        scaleFactor = Math.min(this.scaleWidthToFit(), this.scaleHeightToFit());
         break;
       }
       case 'scaleWidthToFit': {
-        scaleFactor = scaleWidthToFit();
+        scaleFactor = this.scaleWidthToFit();
         break;
       }
       case 'scaleHeightToFit': {
-        scaleFactor = scaleHeightToFit();
+        scaleFactor = this.scaleHeightToFit();
         break;
       }
       case 'fill':
