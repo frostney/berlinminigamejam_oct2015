@@ -31,6 +31,9 @@ if (Object.hasOwnProperty.call(document, 'addEventListener')) {
 const game = (
   <Viewport>
     <SceneDirector />
+    <audio autoPlay loop>
+      <source src="images/music.mp3" type="audio/mpeg" />
+    </audio>
   </Viewport>
 );
 
