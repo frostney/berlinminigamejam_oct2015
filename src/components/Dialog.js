@@ -3,7 +3,9 @@ import TypeWriter from 'react-typewriter';
 
 class Dialog extends Component {
   static defaultProps = {
-    initialVisible: true,
+    visible: true,
+    options: [],
+    onOptionClick: function() {},
   }
 
   constructor(props) {
@@ -12,7 +14,6 @@ class Dialog extends Component {
     this.state = {
       speed: 1,
       optionsVisible: false,
-      visible: props.initialVisible,
     };
   }
 
@@ -37,17 +38,12 @@ class Dialog extends Component {
   render() {
     const options = this.props.options.map((name, index) => {
       const click = (index, name) => {
-        return function() {
-          this.props.onOptionClick(index, name);
-          if (name === '(Continue)') {
-            this.setState({
-              visible: false,
-            });
-          }
+        return () => {
+          this.props.onOptionClick(index, name.action, name.text);
         };
       };
 
-      return <div onClick={click(index, name)} className={`option option-${index}`} key={index}>{index + 1}. {name}</div>
+      return <div onClick={click(index, name)} className={`option option-${index}`} key={index}>{index + 1}. {name.text}</div>
     });
 
     const message = this.props.message.split('\n').map(function(line) {
@@ -56,7 +52,7 @@ class Dialog extends Component {
 
     let className = 'dialog';
 
-    if (!this.state.visible) {
+    if (!this.props.visible) {
       className += ' invisible';
     }
 
