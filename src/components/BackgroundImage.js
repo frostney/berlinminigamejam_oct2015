@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 class BackgroundImage extends Component {
+  static defaultProps = {
+    onClick: function() {}
+  }
+
   render() {
     var style = {
       width: '100%',
@@ -9,7 +13,7 @@ class BackgroundImage extends Component {
       position: 'absolute',
     };
 
-    return <img src={this.props.src} style={style} />;
+    return <img onClick={this.props.onClick} src={this.props.src} style={style} />;
   }
 }
 
