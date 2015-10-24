@@ -6,7 +6,7 @@ class GameObject extends Component {
   }
 
   render() {
-    const styles = {
+    const style = {
       left: this.props.left,
       top: this.props.top,
       right: this.props.right,
@@ -16,7 +16,9 @@ class GameObject extends Component {
     const className = [].concat(['game-object', this.props.className]);
 
     return (
-      <div className={className}>{this.props.children}</div>
+      <div className={className} style={style} onClick={this.props.onClick}>
+        {this.props.children}
+      </div>
     )
   }
 }
