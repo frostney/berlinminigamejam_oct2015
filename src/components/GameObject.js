@@ -11,9 +11,11 @@ class GameObject extends Component {
       top: this.props.top,
       right: this.props.right,
       bottom: this.props.bottom,
+      width: this.props.width,
+      height: this.props.height,
     };
 
-    const className = [].concat(['game-object', this.props.className]);
+    const className = [].concat(['game-object', this.props.className]).join(' ');
 
     return (
       <div className={className} style={style} onClick={this.props.onClick}>

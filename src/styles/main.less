@@ -1,5 +1,4 @@
 /* Imports */
-@import "../../node_modules/normalize.css/normalize.css";
 
 /* Stiziles */
 
@@ -10,6 +9,8 @@ html {
 html, body {
   width: 100%;
   height: 100%;
+
+  user-select: none;
 }
 
 /* main */
@@ -17,9 +18,20 @@ html, body {
 #content {
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #000;
+}
+
+.viewport {
+  outline: 1px solid #444;
 }
 
 .game-object {
   position: absolute;
+}
+
+.credits {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  width: 220px;
 }

@@ -1,18 +1,20 @@
 import World from 'store/World';
 import React, {Component} from 'react';
-import {Introduction, Bar} from './scene';
+import {Bar} from './scene';
 
 class SceneDirector extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      scene: 'Introduction',
+      scene: 'Bar',
     };
   }
 
   componentDidMount() {
-    World.on('scene', sceneName => this.setState({scene: sceneName}));
+    World.on('scene', sceneName => {
+      this.setState({scene: sceneName})
+    });
   }
 
   render() {
@@ -22,6 +24,13 @@ class SceneDirector extends Component {
 
     //var sceneName = (scene && scene[this.state.scene]) ? React.createElement(scene[this.state.scene]) : null;
 
+    var sceneInstance = (() => {
+      switch (this.state.scene) {
+        case 'Bar': return <Bar />;
+        default: return null;
+      }
+    })();
+
     var style = {
       width: '100%',
       height: '100%',
@@ -29,7 +38,7 @@ class SceneDirector extends Component {
 
     return (
       <div className="scene-director" style={style}>
-        <Introduction />
+        {sceneInstance}
       </div>
     );
   }

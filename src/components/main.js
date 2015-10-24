@@ -12,6 +12,9 @@ ES6Promise.polyfill();
 
 import React, {Component} from 'react';
 
+import 'normalize.css/normalize.css';
+import '../styles/main.less';
+
 import Viewport from './Viewport';
 import SceneDirector from './SceneDirector';
 
