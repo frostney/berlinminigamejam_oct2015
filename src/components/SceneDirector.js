@@ -1,6 +1,6 @@
 import World from 'store/World';
 import React, {Component} from 'react';
-import scene from './scene';
+import {Introduction, Bar} from './scene';
 
 class SceneDirector extends Component {
   constructor(props) {
@@ -20,9 +20,7 @@ class SceneDirector extends Component {
       return null;
     }
 
-    if (scene) {
-      var sceneName = React.createElement(scene[this.state.scene]);
-    }
+    //var sceneName = (scene && scene[this.state.scene]) ? React.createElement(scene[this.state.scene]) : null;
 
     var style = {
       width: '100%',
@@ -30,7 +28,9 @@ class SceneDirector extends Component {
     };
 
     return (
-      <div className="scene-director" style={style}>{sceneName}</div>
+      <div className="scene-director" style={style}>
+        <Introduction />
+      </div>
     );
   }
 }
