@@ -52,7 +52,7 @@ body {
 }
 
 .dialog {
-  @width: 350px;
+  @width: 425px;
 
   position: absolute;
   width: @width;
@@ -65,4 +65,18 @@ body {
   border-radius: 8px;
   padding: 16px;
   font-size: 14px;
+  opacity: 1;
+  transition: opacity 400ms;
+
+  &.invisible {
+    opacity: 0;
+  }
+
+  .options {
+    margin-top: 16px;
+
+    .option {
+      cursor: pointer;
+    }
+  }
 }

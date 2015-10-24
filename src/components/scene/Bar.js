@@ -13,7 +13,7 @@ class Bar extends Component {
       <Scene name="bar">
         <BackgroundImage src="images/saloon.png" />
         <Credits />
-        <Dialog message={dialog.intro} />
+        <Dialog message={dialog.intro} options={['[Continue]']} />
       </Scene>
     );
   }
